@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'users',
     'workspaces',
     'tasks',
+    'gamification',
+    'focus',
 ]
 
 MIDDLEWARE = [

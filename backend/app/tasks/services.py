@@ -1,6 +1,7 @@
 from django.utils import timezone
 from .models import Task
 from workspaces.models import WorkspaceMembership
+from gamification.handlers import award_task_completion
 
 def complete_task(task: Task, user):
     """
@@ -11,7 +12,7 @@ def complete_task(task: Task, user):
         task.completed_at = timezone.now()
         task.save(update_fields=['status', 'completed_at'])
         
-        # TODO: Hook for Gamification
+        award_task_completion(user)
     
     return task
 
